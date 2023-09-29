@@ -1,0 +1,100 @@
+.meeting-title {
+  text-align: center;
+  padding-top: 3rem;
+}
+
+.container {
+  border: 2px;
+  background-color: #f1f5f6;
+  height: 100vh;
+}
+
+.main {
+  padding-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.table-responsive {
+  padding: 2rem;
+  max-height: 450px;
+  overflow-y: auto; /* Dikey kaydırıcıları ekle */
+}
+#success-message {
+  margin-top: 3rem;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  #calendar-img,
+  #update-calendar-img {
+    height: 150px;
+    width: 150px;
+  }
+  .table-responsive {
+    padding: 0%;
+    max-height: 250px;
+    overflow-y: auto; /* Dikey kaydırıcıları ekle */
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  #calendar-img,
+  #update-calendar-img {
+    height: 150px;
+    width: 150px;
+  }
+  .table-responsive {
+    padding: 0%;
+    max-height: 400px;
+    overflow-y: auto; /* Dikey kaydırıcıları ekle */
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  #calendar-img,
+  #update-calendar-img {
+    height: 170px;
+    width: 170px;
+  }
+  .table-responsive {
+    padding: 0%;
+    max-height: 400px;
+    overflow-y: auto; /* Dikey kaydırıcıları ekle */
+  }
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  #calendar-img,
+  #update-calendar-img {
+    height: 185px;
+    width: 185px;
+  }
+  .table-responsive {
+    padding: 0%;
+    max-height: 430px;
+    overflow-y: auto; /* Dikey kaydırıcıları ekle */
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  #calendar-img,
+  #update-calendar-img {
+    height: 200px;
+    width: 200px;
+  }
+  .table-responsive {
+    padding: 0%;
+    max-height: 450px;
+    overflow-y: auto; /* Dikey kaydırıcıları ekle */
+  }
+}

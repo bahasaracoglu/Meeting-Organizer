@@ -1,0 +1,39 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toplantı Yönetimi</title>
+  </head>
+  <body>
+    <h1>Toplantı Yönetimi</h1>
+
+    <h2>Toplantıları Görüntüle</h2>
+    <div id="meetings-list">
+      <!-- Toplantıları burada listeleyeceğiz -->
+    </div>
+
+    <h2>Toplantı Ekle</h2>
+    <form id="add-meeting-form">
+      <label for="topic">Konu:</label>
+      <input type="text" id="topic" required /><br />
+
+      <label for="date">Tarih:</label>
+      <input type="date" id="date" required /><br />
+
+      <label for="start-time">Başlangıç Saati:</label>
+      <input type="time" id="start-time" required /><br />
+
+      <label for="end-time">Bitiş Saati:</label>
+      <input type="time" id="end-time" required /><br />
+
+      <label for="participants">Katılımcılar:</label>
+      <input type="text" id="participants" required /><br />
+
+      <button type="submit">Toplantı Ekle</button>
+    </form>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>

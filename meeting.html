@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meeting Organizer</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Button trigger modal -->
+      <h1 class="meeting-title">Meeting Organizer</h1>
+      <div class="main">
+        <div class="btn-container">
+          <img
+            id="calendar-img"
+            src="calendar.png"
+            alt="Toplantı İkonu"
+            width="200"
+            height="200"
+          />
+          <button
+            id="create-meeting-btn"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            Toplantı Planla
+          </button>
+        </div>
+        <div class="btn-container">
+          <img
+            id="update-calendar-img"
+            src="update-calendar.png"
+            alt="Toplantı Düzenle İkonu"
+            width="200"
+            height="200"
+          />
+
+          <button id="list-meetings-btn" class="btn btn-primary">
+            Toplantıları Listele
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Toplantı Planla
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form class="new-plan" id="meeting-form">
+                <div class="form-floating mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="createTopic"
+                    placeholder=""
+                    required
+                  />
+                  <label for="floatingInput">Konu</label>
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="create-email-input"
+                      placeholder="Katılımcı ekleyiniz"
+                    />
+                    <label for="floatingInputGroup1">Katılımcılar</label>
+                  </div>
+                </div>
+                <div id="email-tags">
+                  <!-- Tags will be displayed here -->
+                </div>
+
+                <div class="mb-3">
+                  <label for="formGroupExampleInput3" class="form-label"
+                    >Tarih</label
+                  >
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="create-date"
+                    placeholder="Katılımcı ekle"
+                    required
+                  />
+
+                  <div class="row">
+                    <div class="col mt-3">
+                      <label for="formGroupExampleInput2" class="form-label"
+                        >Başlangıç Saati:</label
+                      >
+                      <input
+                        type="time"
+                        class="form-control"
+                        placeholder=""
+                        aria-label=""
+                        id="create-start"
+                        required
+                      />
+                    </div>
+                    <div class="col mt-3">
+                      <label for="formGroupExampleInput2" class="form-label"
+                        >Bitiş Saati:</label
+                      >
+                      <input
+                        type="time"
+                        class="form-control"
+                        placeholder="Last name"
+                        aria-label="Last name"
+                        id="create-end"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button id="create-meeting" type="submit" class="btn btn-primary">
+                Oluştur
+              </button>
+              <button
+                id="close-meeting"
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Kapat
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="editModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                Toplantıyı Düzenle
+              </h1>
+
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <form class="update-plan">
+                <div class="form-floating mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="editTopic"
+                    placeholder=""
+                    required
+                  />
+                  <label for="floatingInput">Konu</label>
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="form-floating">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="email-input"
+                      placeholder="Katılımcı ekleyiniz"
+                    />
+                    <label for="floatingInputGroup1">Katılımcılar</label>
+                  </div>
+                </div>
+                <div id="email-tags">
+                  <!-- Tags will be displayed here -->
+                </div>
+
+                <div class="mb-3">
+                  <label for="formGroupExampleInput3" class="form-label"
+                    >Tarih</label
+                  >
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="date"
+                    placeholder="Katılımcı ekle"
+                    required
+                  />
+
+                  <div class="row">
+                    <div class="col mt-3">
+                      <label for="formGroupExampleInput2" class="form-label"
+                        >Başlangıç Saati:</label
+                      >
+                      <input
+                        id="start"
+                        type="time"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                    <div class="col mt-3">
+                      <label for="formGroupExampleInput2" class="form-label"
+                        >Bitiş Saati:</label
+                      >
+                      <input
+                        id="end"
+                        type="time"
+                        class="form-control"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button id="send-updateBtn" type="submit" class="btn btn-primary">
+                Düzenlemeyi Tamamla
+              </button>
+              <button
+                id="close-meeting-up"
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Kapat
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <button id="show-calendar-btn" class="btn btn-primary">
+        Toplantıları Takvimde Göster
+      </button> -->
+      <div
+        class="alert alert-success alert-dismissible fade show"
+        role="alert"
+        id="success-message"
+        style="display: none"
+      >
+        Toplantı kaydı başarıyla oluşturuldu.
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <div
+        class="table-responsive mt-5"
+        id="meetings-list-cont"
+        style="display: none"
+      >
+        <table class="table" id="meeting-list">
+          <thead>
+            <tr>
+              <th scope="col">Konu</th>
+              <th scope="col">Tarih</th>
+              <th scope="col">Katılımcılar</th>
+              <th scope="col">Başlangıç Saati</th>
+              <th scope="col">Bitiş Saati</th>
+              <th scope="col">Düzenle</th>
+              <th scope="col">Sil</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div id="calendar" style="display: none"></div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
